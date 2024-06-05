@@ -4,5 +4,7 @@ export default {
   methods: {},
 };
 </script>
-<template></template>
+<template>
+  <p>io sono il logo</p>
+</template>
 <style></style>

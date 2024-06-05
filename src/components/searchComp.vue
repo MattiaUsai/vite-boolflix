@@ -4,5 +4,14 @@ export default {
   methods: {},
 };
 </script>
-<template></template>
-<style></style>
+<template>
+  <div class="search">
+    <input type="text" />
+  </div>
+</template>
+<style scoped lang="scss">
+@use "../scss/partials/variables.scss" as *;
+input {
+  @include buttonStyle;
+}
+</style>
