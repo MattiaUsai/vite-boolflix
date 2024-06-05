@@ -8,7 +8,7 @@ export default {
     title: String,
     date: String,
     overview: String,
-    score: String,
+    score: Number,
   },
 };
 </script>

@@ -8,12 +8,13 @@ import { store } from "./store";
 export default {
   data() {
     return {
-      movieList: [],
       store,
     };
   },
 
-  methods: {},
+  methods: {
+    callAPI() {},
+  },
 
   components: {
     footerComp,
@@ -25,7 +26,6 @@ export default {
     axios.get(store.APIurl).then((response) => {
       this.store.ApiCall = response.data;
       this.store.listMovie = response.data.results;
-      this.movieList = store.listMovie;
     });
   },
 };
@@ -37,7 +37,7 @@ export default {
     <div class="row">
       <movieCardVue
         class="movieCard"
-        v-for="movie in movieList"
+        v-for="movie in store.listMovie"
         :title="movie.original_title"
         :date="movie.release_date"
         :overview="movie.overview"
