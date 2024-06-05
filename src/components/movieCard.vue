@@ -14,7 +14,7 @@ export default {
 </script>
 <template>
   <div class="card">
-    <img :src="image" alt="" />
+    <span>{{ overview }}</span>
     <h3>{{ title }}</h3>
     <p>{{ score }}</p>
     <p>{{ date }}</p>
@@ -23,14 +23,25 @@ export default {
 <style scoped lang="scss">
 .card {
   text-align: center;
+  height: 300px;
   padding: 20px;
-  img {
-    border-radius: 100%;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2),
-      0 5px 10px 0 rgba(0, 0, 0, 0.19);
+  overflow: scroll;
+  span {
+    display: none;
   }
   h3 {
     margin: 10px 0 40px 0;
+  }
+  &:hover {
+    span {
+      display: inline;
+    }
+    p {
+      display: none;
+    }
+    h3 {
+      display: none;
+    }
   }
 }
 </style>

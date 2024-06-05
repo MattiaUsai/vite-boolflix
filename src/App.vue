@@ -57,6 +57,7 @@ export default {
     flex-wrap: wrap;
     .movieCard {
       width: calc(100% / 4 - 10px);
+      background-color: antiquewhite;
 
       margin: 5px;
     }
