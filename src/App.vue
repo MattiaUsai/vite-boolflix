@@ -33,7 +33,33 @@ export default {
 
 <template>
   <headerComp></headerComp>
-  <movieCardVue v-for="movie in movieList"></movieCardVue>
+  <div class="container">
+    <div class="row">
+      <movieCardVue
+        class="movieCard"
+        v-for="movie in movieList"
+        :title="movie.original_title"
+        :date="movie.release_date"
+        :overview="movie.overview"
+        :score="movie.vote_average"
+      ></movieCardVue>
+    </div>
+  </div>
 </template>
+<style scoped lang="scss">
+.container {
+  width: 1100px;
+  margin: 0 auto;
+  .row {
+    padding: 30px 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .movieCard {
+      width: calc(100% / 4 - 10px);
 
-<style></style>
+      margin: 5px;
+    }
+  }
+}
+</style>
