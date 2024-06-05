@@ -60,7 +60,8 @@ export default {
     flex-wrap: wrap;
     .movieCard {
       width: calc(100% / 4 - 10px);
-      background-image: url(../public/image.png);
+      background-color: white;
+
       color: black;
 
       margin: 5px;

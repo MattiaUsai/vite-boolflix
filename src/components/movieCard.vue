@@ -5,10 +5,11 @@ export default {
   },
   methods: {
     imgPhat(phat) {
-      console.log(
-        `background-image:url(https://image.tmdb.org/t/p/original/${phat})`
-      );
-      return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
+      if (phat) {
+        return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
+      } else {
+        return `background-image: url(../../public/notfound.jpg)`;
+      }
     },
   },
   props: {
