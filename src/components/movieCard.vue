@@ -1,8 +1,12 @@
 <script>
 export default {
-  data() {},
+  data() {
+    return {};
+  },
   methods: {},
 };
 </script>
-<template></template>
+<template>
+  <p>ciao</p>
+</template>
 <style></style>

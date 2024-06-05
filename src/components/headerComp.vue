@@ -3,7 +3,9 @@ import searchComp from "./searchComp.vue";
 import logoComp from "./logoComp.vue";
 import menuHeader from "./menuHeader.vue";
 export default {
-  data() {},
+  data() {
+    return {};
+  },
   methods: {},
   components: {
     searchComp,
