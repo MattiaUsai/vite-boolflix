@@ -9,6 +9,7 @@ export default {
   data() {
     return {
       store,
+      movielist: [],
     };
   },
 
@@ -26,6 +27,7 @@ export default {
     axios.get(store.APIurl).then((response) => {
       this.store.ApiCall = response.data;
       this.store.listMovie = response.data.results;
+      this.movielist = this.store.listMovie;
     });
   },
 };
@@ -42,6 +44,7 @@ export default {
         :date="movie.release_date"
         :overview="movie.overview"
         :score="movie.vote_average"
+        :image="movie.poster_path"
       ></movieCardVue>
     </div>
   </div>
@@ -57,7 +60,8 @@ export default {
     flex-wrap: wrap;
     .movieCard {
       width: calc(100% / 4 - 10px);
-      background-color: antiquewhite;
+      background-image: url(../public/image.png);
+      color: black;
 
       margin: 5px;
     }

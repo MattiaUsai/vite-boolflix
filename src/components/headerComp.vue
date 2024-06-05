@@ -8,17 +8,17 @@ export default {
   },
   methods: {},
   components: {
-    searchComp,
     logoComp,
     menuHeader,
+    searchComp,
   },
 };
 </script>
 <template>
   <header>
-    <searchComp></searchComp>
     <logoComp></logoComp>
     <menuHeader></menuHeader>
+    <searchComp></searchComp>
   </header>
 </template>
 
@@ -26,7 +26,7 @@ export default {
 header {
   height: 70px;
   width: 100%;
-  background-color: aqua;
+  background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;

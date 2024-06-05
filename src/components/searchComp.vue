@@ -24,13 +24,17 @@ export default {
 </script>
 <template>
   <div class="search">
-    <input v-model="searchMovie" type="text" />
+    <input v-model="searchMovie" placeholder="Cerca un film" type="text" />
     <button @click="findMovie">cerca</button>
   </div>
 </template>
 <style scoped lang="scss">
 @use "../scss/partials/variables.scss" as *;
 input {
+  @include buttonStyle;
+  border: 1px solid $borderColor;
+}
+button {
   @include buttonStyle;
 }
 </style>

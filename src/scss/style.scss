@@ -1,3 +1,7 @@
 @use "./partials/reset.scss" as *;
 @use "./partials/size.scss" as *;
 @use "./partials/variables.scss" as *;
+body {
+  color: $prymaryTextColor;
+  background: rgb(10, 10, 8);
+}

@@ -1,8 +1,8 @@
 $primaryColor: orange;
-$borderColor: lightgray;
-$secondaryColor: orange;
-$prymaryTextColor: orange;
-$secondaryTextColor: orange;
+$borderColor: rgb(246, 255, 0);
+$secondaryColor: rgb(6, 6, 5);
+$prymaryTextColor: rgb(255, 255, 255);
+$secondaryTextColor: rgb(255, 238, 1);
 body {
   font-family: "MontSerrat";
 }
@@ -11,6 +11,7 @@ body {
   padding: 5px 10px;
   border-radius: 5px;
   margin: 0 10px;
-  border: 1px solid $borderColor;
-  background: #fff;
+  border: none;
+  background: $secondaryColor;
+  color: $secondaryTextColor;
 }

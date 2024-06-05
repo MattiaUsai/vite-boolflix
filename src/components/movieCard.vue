@@ -3,44 +3,58 @@ export default {
   data() {
     return {};
   },
-  methods: {},
+  methods: {
+    imgPhat(phat) {
+      console.log(
+        `background-image:url(https://image.tmdb.org/t/p/original/${phat})`
+      );
+      return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
+    },
+  },
   props: {
     title: String,
     date: String,
     overview: String,
     score: Number,
+    image: String,
   },
 };
 </script>
 <template>
-  <div class="card">
-    <span>{{ overview }}</span>
-    <h3>{{ title }}</h3>
-    <p>{{ score }}</p>
-    <p>{{ date }}</p>
+  <div class="card" :style="imgPhat(image)">
+    <div class="cardText">
+      <h2>{{ title }}</h2>
+      <span>{{ overview }}</span>
+      <p>{{ score }}</p>
+      <p>{{ date }}</p>
+      <p>{{ image }}</p>
+    </div>
   </div>
 </template>
+
 <style scoped lang="scss">
 .card {
-  text-align: center;
-  height: 300px;
-  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+
   overflow: scroll;
-  span {
+  background-position: center;
+  background-size: contain;
+  position: relative;
+  .cardText {
     display: none;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
   }
-  h3 {
-    margin: 10px 0 40px 0;
-  }
+
   &:hover {
-    span {
-      display: inline;
-    }
-    p {
-      display: none;
-    }
-    h3 {
-      display: none;
+    .cardText {
+      display: block;
+      background-color: black;
+      color: white;
     }
   }
 }

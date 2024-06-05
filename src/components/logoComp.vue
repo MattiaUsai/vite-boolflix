@@ -7,6 +7,6 @@ export default {
 };
 </script>
 <template>
-  <p>io sono il logo</p>
+  <p>Boolflix</p>
 </template>
 <style></style>
