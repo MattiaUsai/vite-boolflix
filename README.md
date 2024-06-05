@@ -24,14 +24,11 @@ MILESTONE 1
 Creo un layout a componenti :
 --App
 ----header
-------search bar
-------button search
+------search
 ------menu
 ------logo
 
-----main
-------filmCard
-------film info
+----movieCard
 
 ----footer
 ------menu
