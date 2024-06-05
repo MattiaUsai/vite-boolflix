@@ -8,7 +8,7 @@ export default {
       if (phat) {
         return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
       } else {
-        return `background-image: url(../../public/notfound.jpg)`;
+        return `background-image: url(/notfound.jpg)`;
       }
     },
   },
