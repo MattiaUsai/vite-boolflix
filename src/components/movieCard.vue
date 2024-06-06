@@ -6,7 +6,7 @@ export default {
   methods: {
     imgPhat(phat) {
       if (phat) {
-        return `background-image:url(https://image.tmdb.org/t/p/w92/${phat})`;
+        return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
       } else {
         return `background-image: url(/notfound.jpg)`;
       }

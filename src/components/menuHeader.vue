@@ -1,35 +1,42 @@
 <script>
+import { store } from "../store";
+import axios from "axios";
+
 export default {
   data() {
     return {
-      isActiveHome: false,
-      isActiveFilm: false,
-      isActiveSerieTv: false,
-      isActivePreferiti: false,
+      store,
     };
   },
   methods: {
     HomePage() {
-      this.isActiveHome = !this.isActiveHome;
+      store.isActiveHome = !store.isActiveHome;
     },
     FilmPage() {
-      this.isActiveFilm = !this.isActiveFilm;
+      store.isActiveFilm = !store.isActiveFilm;
     },
     SerieTvPage() {
-      this.isActiveSerieTv = !this.isActiveSerieTv;
+      store.isActiveSerieTv = !store.isActiveSerieTv;
+      store.APIurl = `https://api.themoviedb.org/3/search/tv?language=it-IT&api_key=31435bc50ef6a0206603a4bcc88b5545&query=${store.searchMovie}`;
+      axios.get(store.APIurl).then((response) => {
+        this.store.ApiCall = response.data;
+        this.store.listMovie = response.data.results;
+      });
     },
     PreferitiPage() {
-      this.isActivePreferiti = !this.isActivePreferiti;
+      store.isActivePreferiti = !store.isActivePreferiti;
     },
   },
 };
 </script>
 <template>
   <ul>
-    <li :class="{ active: isActiveHome }" @click="HomePage()">Home</li>
-    <li :class="{ active: isActiveFilm }" @click="FilmPage()">Film</li>
-    <li :class="{ active: isActiveSerieTv }" @click="SerieTvPage()">SerieTv</li>
-    <li :class="{ active: isActivePreferiti }" @click="PreferitiPage()">
+    <li :class="{ active: store.isActiveHome }" @click="HomePage()">Home</li>
+    <li :class="{ active: store.isActiveFilm }" @click="FilmPage()">Film</li>
+    <li :class="{ active: store.isActiveSerieTv }" @click="SerieTvPage()">
+      SerieTv
+    </li>
+    <li :class="{ active: store.isActivePreferiti }" @click="PreferitiPage()">
       Preferiti
     </li>
   </ul>

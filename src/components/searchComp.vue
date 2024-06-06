@@ -5,17 +5,16 @@ import { store } from "../store";
 export default {
   data() {
     return {
-      searchMovie: "",
       store,
     };
   },
   methods: {
     findMovie() {
-      if (this.searchMovie) {
-        store.APIurl = `https://api.themoviedb.org/3/search/movie?language=it-IT&api_key=31435bc50ef6a0206603a4bcc88b5545&query=$${this.searchMovie}`;
+      if (store.searchMovie) {
+        store.APIurl = `https://api.themoviedb.org/3/search/movie?language=it-IT&api_key=31435bc50ef6a0206603a4bcc88b5545&query=$${store.searchMovie}`;
         axios.get(store.APIurl).then((response) => {
-          this.store.ApiCall = response.data;
-          this.store.listMovie = response.data.results;
+          store.ApiCall = response.data;
+          store.listMovie = response.data.results;
         });
       }
     },
@@ -24,7 +23,11 @@ export default {
 </script>
 <template>
   <div class="search">
-    <input v-model="searchMovie" placeholder="Cerca un film" type="text" />
+    <input
+      v-model="store.searchMovie"
+      placeholder="Cerca un film"
+      type="text"
+    />
     <button @click="findMovie">cerca</button>
   </div>
 </template>
