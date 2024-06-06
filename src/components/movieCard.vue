@@ -6,16 +6,20 @@ export default {
   methods: {
     imgPhat(phat) {
       if (phat) {
-        return `background-image:url(https://image.tmdb.org/t/p/original/${phat})`;
+        return `background-image:url(https://image.tmdb.org/t/p/w92/${phat})`;
       } else {
         return `background-image: url(/notfound.jpg)`;
       }
+    },
+    scoreStar(score) {
+      const point = Math.round(score / 2);
+      return point;
     },
   },
   props: {
     title: String,
     date: String,
-    overview: String,
+    originalTitle: String,
     score: Number,
     image: String,
   },
@@ -25,20 +29,25 @@ export default {
   <div class="card" :style="imgPhat(image)">
     <div class="cardText">
       <h2>{{ title }}</h2>
-      <span>{{ overview }}</span>
-      <p>{{ score }}</p>
+      <span>Titolo Originale:{{ originalTitle }}</span>
+      <p>
+        {{ scoreStar(score) }}<i class="fa-solid fa-star"></i
+        ><i class="fa-regular fa-star"></i>
+      </p>
       <p>{{ date }}</p>
-      <p>{{ image }}</p>
     </div>
   </div>
 </template>
 
 <style scoped lang="scss">
+@use "../scss/partials/variables.scss" as *;
+
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 400px;
+  box-shadow: 1px 1px 5px $borderColor;
 
   overflow: scroll;
   background-position: center;
@@ -46,7 +55,7 @@ export default {
   position: relative;
   .cardText {
     display: none;
-    height: 100%;
+    min-height: 100%;
     width: 100%;
     padding: 10px;
   }

@@ -40,9 +40,9 @@ export default {
       <movieCardVue
         class="movieCard"
         v-for="movie in store.listMovie"
-        :title="movie.original_title"
+        :title="movie.title"
         :date="movie.release_date"
-        :overview="movie.overview"
+        :originalTitle="movie.original_title"
         :score="movie.vote_average"
         :image="movie.poster_path"
       ></movieCardVue>
