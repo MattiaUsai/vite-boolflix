@@ -46,9 +46,9 @@ export default {
         v-show="store.isActiveSerieTv"
         class="movieCard"
         v-for="tvshow in store.listTvShow"
-        :title="tvshow.title"
-        :date="tvshow.release_date"
-        :originalTitle="tvshow.original_title"
+        :title="tvshow.name"
+        :date="tvshow.first_air_date"
+        :originalTitle="tvshow.name"
         :score="tvshow.vote_average"
         :image="tvshow.poster_path"
       ></tvCardVue>
