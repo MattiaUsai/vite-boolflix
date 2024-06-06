@@ -13,6 +13,7 @@ export default {
     },
     scoreStar(score) {
       const point = Math.round(score / 2);
+
       return point;
     },
   },
@@ -27,6 +28,7 @@ export default {
 </script>
 <template>
   <div class="card" :style="imgPhat(image)">
+    <p @click="$emit('addPrefer')" class="hearts">&hearts;</p>
     <div class="cardText">
       <h2>{{ title }}</h2>
       <span>Titolo Originale:{{ originalTitle }}</span>
@@ -53,6 +55,21 @@ export default {
   background-position: center;
   background-size: contain;
   position: relative;
+  .hearts {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 0 0 20px;
+
+    font-size: 30px;
+    color: red;
+    background-color: black;
+  }
   .cardText {
     display: none;
     min-height: 100%;

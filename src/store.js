@@ -4,6 +4,7 @@ export const store = reactive({
   ApiCall: {},
   listMovie: [],
   listTvShow: [],
+  listPrefer: [],
   isActiveHome: false,
   isActiveFilm: false,
   isActiveSerieTv: false,

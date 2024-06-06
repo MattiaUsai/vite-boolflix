@@ -14,7 +14,10 @@ export default {
   },
 
   methods: {
-    callAPI() {},
+    funcAddPrefer(film) {
+      console.log(film);
+      store.listPrefer.push(film);
+    },
   },
 
   components: {
@@ -51,6 +54,7 @@ export default {
         :originalTitle="tvshow.name"
         :score="tvshow.vote_average"
         :image="tvshow.poster_path"
+        @addPrefer="funcAddPrefer(tvshow)"
       ></tvCardVue>
 
       <movieCardVue
@@ -62,6 +66,7 @@ export default {
         :originalTitle="movie.original_title"
         :score="movie.vote_average"
         :image="movie.poster_path"
+        @addPrefer="funcAddPrefer(movie)"
       ></movieCardVue>
     </div>
   </div>
