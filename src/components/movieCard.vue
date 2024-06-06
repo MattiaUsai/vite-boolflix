@@ -31,11 +31,8 @@ export default {
     <p @click="$emit('addPrefer')" class="hearts">&hearts;</p>
     <div class="cardText">
       <h2>{{ title }}</h2>
-      <span>Titolo Originale:{{ originalTitle }}</span>
-      <p>
-        {{ scoreStar(score) }}<i class="fa-solid fa-star"></i
-        ><i class="fa-regular fa-star"></i>
-      </p>
+      <span> Titolo Originale:{{ originalTitle }}</span>
+      <p>{{ scoreStar(score) }}<i class="fa-solid fa-star"></i></p>
       <p>{{ date }}</p>
     </div>
   </div>
