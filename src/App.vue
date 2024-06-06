@@ -16,7 +16,11 @@ export default {
   methods: {
     funcAddPrefer(film) {
       console.log(film);
-      store.listPrefer.push(film);
+      store.listPreferFilm.push(film);
+    },
+    funcAddPreferTv(film) {
+      console.log(film);
+      store.listPreferTv.push(film);
     },
   },
 
@@ -54,7 +58,7 @@ export default {
         :originalTitle="tvshow.name"
         :score="tvshow.vote_average"
         :image="tvshow.poster_path"
-        @addPrefer="funcAddPrefer(tvshow)"
+        @addPrefer="funcAddPreferTv(tvshow)"
       ></tvCardVue>
 
       <movieCardVue
@@ -68,6 +72,26 @@ export default {
         :image="movie.poster_path"
         @addPrefer="funcAddPrefer(movie)"
       ></movieCardVue>
+      <movieCardVue
+        v-show="store.isActivePreferiti"
+        class="movieCard"
+        v-for="movie in store.listPreferFilm"
+        :title="movie.title"
+        :date="movie.release_date"
+        :originalTitle="movie.original_title"
+        :score="movie.vote_average"
+        :image="movie.poster_path"
+      ></movieCardVue>
+      <tvCardVue
+        v-show="store.isActivePreferiti"
+        class="movieCard"
+        v-for="tvshow in store.listPreferTv"
+        :title="tvshow.name"
+        :date="tvshow.first_air_date"
+        :originalTitle="tvshow.name"
+        :score="tvshow.vote_average"
+        :image="tvshow.poster_path"
+      ></tvCardVue>
     </div>
   </div>
 </template>
