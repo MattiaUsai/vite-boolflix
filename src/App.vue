@@ -3,13 +3,13 @@ import axios from "axios";
 import footerComp from "./components/footerComp.vue";
 import headerComp from "./components/headerComp.vue";
 import movieCardVue from "./components/movieCard.vue";
+import tvCardVue from "./components/tvCard.vue";
 import { store } from "./store";
 
 export default {
   data() {
     return {
       store,
-      movielist: [],
     };
   },
 
@@ -21,13 +21,18 @@ export default {
     footerComp,
     headerComp,
     movieCardVue,
+    tvCardVue,
   },
 
   created() {
-    axios.get(store.APIurl).then((response) => {
+    axios.get(store.APIurlMovie).then((response) => {
       this.store.ApiCall = response.data;
       this.store.listMovie = response.data.results;
-      this.movielist = this.store.listMovie;
+    });
+    axios.get(store.APIurlTvShow).then((response) => {
+      this.store.ApiCall = response.data;
+      this.store.listTvShow = response.data.results;
+      console.log(response.data.results);
     });
   },
 };
@@ -37,7 +42,19 @@ export default {
   <headerComp></headerComp>
   <div class="container">
     <div class="row">
+      <tvCardVue
+        v-show="store.isActiveSerieTv"
+        class="movieCard"
+        v-for="tvshow in store.listTvShow"
+        :title="tvshow.title"
+        :date="tvshow.release_date"
+        :originalTitle="tvshow.original_title"
+        :score="tvshow.vote_average"
+        :image="tvshow.poster_path"
+      ></tvCardVue>
+
       <movieCardVue
+        v-show="store.isActiveFilm"
         class="movieCard"
         v-for="movie in store.listMovie"
         :title="movie.title"

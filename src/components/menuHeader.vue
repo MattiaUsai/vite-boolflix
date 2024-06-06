@@ -11,20 +11,27 @@ export default {
   methods: {
     HomePage() {
       store.isActiveHome = !store.isActiveHome;
+      store.isActivePreferiti = false;
+      store.isActiveFilm = false;
+      store.isActiveSerieTv = false;
     },
     FilmPage() {
       store.isActiveFilm = !store.isActiveFilm;
+      store.isActiveHome = false;
+      store.isActiveSerieTv = false;
+      store.isActivePreferiti = false;
     },
     SerieTvPage() {
       store.isActiveSerieTv = !store.isActiveSerieTv;
-      store.APIurl = `https://api.themoviedb.org/3/search/tv?language=it-IT&api_key=31435bc50ef6a0206603a4bcc88b5545&query=${store.searchMovie}`;
-      axios.get(store.APIurl).then((response) => {
-        this.store.ApiCall = response.data;
-        this.store.listMovie = response.data.results;
-      });
+      store.isActiveFilm = false;
+      store.isActiveHome = false;
+      store.isActivePreferiti = false;
     },
     PreferitiPage() {
       store.isActivePreferiti = !store.isActivePreferiti;
+      store.isActiveFilm = false;
+      store.isActiveHome = false;
+      store.isActiveSerieTv = false;
     },
   },
 };
