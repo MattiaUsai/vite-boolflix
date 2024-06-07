@@ -27,7 +27,7 @@ export default {
       <filmPage></filmPage>
     </div>
   </div>
-  <h2>Serie tv</h2>
+  <h2>Tv Show</h2>
   <div class="container">
     <div class="row">
       <tvPage></tvPage>

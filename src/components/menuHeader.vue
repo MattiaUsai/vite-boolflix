@@ -41,7 +41,7 @@ export default {
     <li :class="{ active: store.isActiveHome }" @click="HomePage()">Home</li>
     <li :class="{ active: store.isActiveFilm }" @click="FilmPage()">Film</li>
     <li :class="{ active: store.isActiveSerieTv }" @click="SerieTvPage()">
-      SerieTv
+      Tv Show
     </li>
     <li :class="{ active: store.isActivePreferiti }" @click="PreferitiPage()">
       Preferiti
