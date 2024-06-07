@@ -32,7 +32,6 @@ export default {
 
 <template>
   <movieCardVue
-    v-show="store.isActiveFilm"
     class="movieCard"
     v-for="movie in store.listMovie"
     :title="movie.title"
@@ -42,19 +41,6 @@ export default {
     :image="movie.poster_path"
     :favorite="isFavorite(movie)"
     @addPrefer="funcAddPrefer(movie)"
-  ></movieCardVue>
-
-  <movieCardVue
-    v-show="store.isActivePreferiti"
-    class="movieCard"
-    v-for="movie in store.listPreferFilm"
-    :title="movie.title"
-    :date="movie.release_date"
-    :originalTitle="movie.original_title"
-    :score="movie.vote_average"
-    :image="movie.poster_path"
-    :favorite="isFavorite(movie)"
-    @addPrefer="funcRemovePrefer(movie)"
   ></movieCardVue>
 </template>
 

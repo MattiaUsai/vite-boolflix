@@ -1,24 +1,27 @@
 <script>
 import tvCardVue from "./tvCard.vue";
+import movieCardVue from "./filmCard.vue";
 import { store } from "../store";
 export default {
   data() {
-    return {
-      store,
-    };
+    return { store };
   },
   methods: {
+    isFavorite(film) {
+      if (store.listPreferFilm.includes(film)) {
+        return true;
+      }
+    },
     isFavorite(tvshow) {
       if (store.listPreferTv.includes(tvshow)) {
         return true;
       }
     },
-    funcAddPreferTv(tvshow) {
-      if (!store.listPreferTv.includes(tvshow)) {
-        store.listPreferTv.push(tvshow);
-      } else {
-        this.funcRemovePreferTv(tvshow);
-      }
+    funcRemovePrefer(film) {
+      const favoriteArray = store.listPreferFilm.filter(
+        (element) => element.id !== film.id
+      );
+      store.listPreferFilm = favoriteArray;
     },
     funcRemovePreferTv(tvshow) {
       const favoriteArray = store.listPreferTv.filter(
@@ -27,24 +30,35 @@ export default {
       store.listPreferTv = favoriteArray;
     },
   },
-  components: {
-    tvCardVue,
-  },
+  components: { movieCardVue, tvCardVue },
 };
 </script>
+
 <template>
+  <movieCardVue
+    class="movieCard"
+    v-for="movie in store.listPreferFilm"
+    :title="movie.title"
+    :date="movie.release_date"
+    :originalTitle="movie.original_title"
+    :score="movie.vote_average"
+    :image="movie.poster_path"
+    :favorite="isFavorite(movie)"
+    @addPrefer="funcRemovePrefer(movie)"
+  ></movieCardVue>
   <tvCardVue
     class="movieCard"
-    v-for="tvshow in store.listTvShow"
+    v-for="tvshow in store.listPreferTv"
     :title="tvshow.name"
     :date="tvshow.first_air_date"
     :originalTitle="tvshow.name"
     :score="tvshow.vote_average"
     :image="tvshow.poster_path"
     :favorite="isFavorite(tvshow)"
-    @addPrefer="funcAddPreferTv(tvshow)"
+    @addPrefer="funcRemovePreferTv(tvshow)"
   ></tvCardVue>
 </template>
+
 <style scoped lang="scss">
 @use "../scss/partials/size.scss" as *;
 

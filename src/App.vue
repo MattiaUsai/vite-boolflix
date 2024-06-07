@@ -5,7 +5,8 @@ import headerComp from "./components/headerComp.vue";
 import { store } from "./store";
 import filmPage from "./components/filmPageComp.vue";
 import tvPage from "./components/tvPagecomp.vue";
-
+import homePage from "./components/homecomp.vue";
+import favoritePage from "./components/favoritePage.vue";
 export default {
   data() {
     return {
@@ -20,6 +21,8 @@ export default {
     headerComp,
     filmPage,
     tvPage,
+    homePage,
+    favoritePage,
   },
 
   created() {
@@ -40,8 +43,10 @@ export default {
   <headerComp></headerComp>
   <div class="container">
     <div class="row">
-      <filmPage></filmPage>
-      <tvPage></tvPage>
+      <filmPage v-if="store.isActiveFilm"></filmPage>
+      <tvPage v-if="store.isActiveSerieTv"></tvPage>
+      <homePage v-if="store.isActiveHome"></homePage>
+      <favoritePage v-if="store.isActivePreferiti"></favoritePage>
     </div>
   </div>
 </template>
