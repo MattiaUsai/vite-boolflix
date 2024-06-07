@@ -10,7 +10,7 @@ body {
 @mixin buttonStyle {
   padding: 5px 10px;
   border-radius: 5px;
-  margin: 0 10px;
+  margin: 5px;
   border: none;
   background: $secondaryColor;
   color: $secondaryTextColor;

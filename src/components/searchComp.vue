@@ -33,7 +33,9 @@ export default {
       placeholder="Cerca un film"
       type="text"
     />
-    <button @click="findMovie">cerca</button>
+    <button @click="findMovie">
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </button>
   </div>
 </template>
 <style scoped lang="scss">
@@ -44,5 +46,9 @@ input {
 }
 button {
   @include buttonStyle;
+  font-size: 20px;
+}
+.search {
+  margin: 0 20px;
 }
 </style>

@@ -38,9 +38,11 @@ export default {
     </p>
     <div class="cardText">
       <h2>{{ title }}</h2>
-      <span> Titolo Originale:{{ originalTitle }}</span>
-      <p>{{ scoreStar(score) }}<i class="fa-solid fa-star"></i></p>
-      <p>{{ date }}</p>
+      <span> Titolo Originale: {{ originalTitle }}</span>
+      <p class="starcolor">
+        {{ scoreStar(score) }}<i class="fa-solid fa-star"></i>
+      </p>
+      <p class="date">Data Prima Uscita: {{ date }}</p>
     </div>
   </div>
 </template>
@@ -90,6 +92,14 @@ export default {
       display: block;
       background-color: black;
       color: white;
+    }
+    .date {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+    }
+    .starcolor {
+      color: $secondaryTextColor;
     }
   }
 }
