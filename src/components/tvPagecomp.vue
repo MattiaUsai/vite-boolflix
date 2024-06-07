@@ -13,14 +13,19 @@ export default {
         return true;
       }
     },
-    funcAddPreferTv(tvShow) {
-      if (!store.listPreferTv.includes(tvShow)) {
-        store.listPreferTv.push(tvShow);
+    funcAddPreferTv(tvshow) {
+      if (!store.listPreferTv.includes(tvshow)) {
+        store.listPreferTv.push(tvshow);
       } else {
-        console.log("elemento gia aggiunto ai preferiti");
+        this.funcRemovePreferTv(tvshow);
       }
     },
-    funcRemovePreferTv(tvShow) {},
+    funcRemovePreferTv(tvshow) {
+      const favoriteArray = store.listPreferTv.filter(
+        (element) => element.id !== tvshow.id
+      );
+      store.listPreferTv = favoriteArray;
+    },
   },
   components: {
     tvCardVue,
@@ -28,43 +33,38 @@ export default {
 };
 </script>
 <template>
-  <div class="row">
-    <tvCardVue
-      v-show="store.isActiveSerieTv"
-      class="movieCard"
-      v-for="tvshow in store.listTvShow"
-      :title="tvshow.name"
-      :date="tvshow.first_air_date"
-      :originalTitle="tvshow.name"
-      :score="tvshow.vote_average"
-      :image="tvshow.poster_path"
-      :favorite="isFavorite(tvshow)"
-      @addPrefer="funcAddPreferTv(tvshow)"
-    ></tvCardVue>
-    <tvCardVue
-      v-show="store.isActivePreferiti"
-      class="movieCard"
-      v-for="tvshow in store.listPreferTv"
-      :title="tvshow.name"
-      :date="tvshow.first_air_date"
-      :originalTitle="tvshow.name"
-      :score="tvshow.vote_average"
-      :image="tvshow.poster_path"
-      :favorite="isFavorite(tvshow)"
-      @addPrefer="funcRemovePreferTv(movie)"
-    ></tvCardVue>
-  </div>
+  <tvCardVue
+    v-show="store.isActiveSerieTv"
+    class="movieCard"
+    v-for="tvshow in store.listTvShow"
+    :title="tvshow.name"
+    :date="tvshow.first_air_date"
+    :originalTitle="tvshow.name"
+    :score="tvshow.vote_average"
+    :image="tvshow.poster_path"
+    :favorite="isFavorite(tvshow)"
+    @addPrefer="funcAddPreferTv(tvshow)"
+  ></tvCardVue>
+  <tvCardVue
+    v-show="store.isActivePreferiti"
+    class="movieCard"
+    v-for="tvshow in store.listPreferTv"
+    :title="tvshow.name"
+    :date="tvshow.first_air_date"
+    :originalTitle="tvshow.name"
+    :score="tvshow.vote_average"
+    :image="tvshow.poster_path"
+    :favorite="isFavorite(tvshow)"
+    @addPrefer="funcRemovePreferTv(tvshow)"
+  ></tvCardVue>
 </template>
 <style scoped lang="scss">
 @use "../scss/partials/size.scss" as *;
-.container {
-  @include containerLarge;
 
-  .movieCard {
-    width: calc(100% / 4 - 10px);
-    background-color: white;
-    color: black;
-    margin: 5px;
-  }
+.movieCard {
+  width: calc(100% / 4 - 10px);
+  background-color: white;
+  color: black;
+  margin: 5px;
 }
 </style>

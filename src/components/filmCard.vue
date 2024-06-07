@@ -23,12 +23,19 @@ export default {
     originalTitle: String,
     score: Number,
     image: String,
+    favorite: Boolean,
   },
 };
 </script>
 <template>
   <div class="card" :style="imgPhat(image)">
-    <p @click="$emit('addPrefer')" class="hearts">&hearts;</p>
+    <p
+      @click="$emit('addPrefer')"
+      class="hearts"
+      :class="{ favoriteActive: favorite }"
+    >
+      &hearts;
+    </p>
     <div class="cardText">
       <h2>{{ title }}</h2>
       <span> Titolo Originale:{{ originalTitle }}</span>
@@ -64,8 +71,11 @@ export default {
     border-radius: 0 0 0 20px;
 
     font-size: 30px;
-    color: red;
+    color: rgb(255, 255, 255);
     background-color: black;
+  }
+  .favoriteActive {
+    color: red;
   }
   .cardText {
     display: none;

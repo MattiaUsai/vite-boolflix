@@ -22,7 +22,7 @@ export default {
     originalTitle: String,
     score: Number,
     image: String,
-    favorite: String,
+    favorite: Boolean,
   },
 };
 </script>

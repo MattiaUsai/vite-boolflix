@@ -39,9 +39,10 @@ export default {
 <template>
   <headerComp></headerComp>
   <div class="container">
-    <div class="row"></div>
-    <filmPage></filmPage>
-    <tvPage></tvPage>
+    <div class="row">
+      <filmPage></filmPage>
+      <tvPage></tvPage>
+    </div>
   </div>
 </template>
 
