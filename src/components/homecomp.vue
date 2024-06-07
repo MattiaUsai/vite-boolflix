@@ -22,23 +22,40 @@ export default {
 </script>
 <template>
   <h2>Film</h2>
-  <div class="row">
-    <filmPage></filmPage>
+  <div class="container">
+    <div class="row">
+      <filmPage></filmPage>
+    </div>
   </div>
   <h2>Serie tv</h2>
-  <div class="row">
-    <tvPage></tvPage>
+  <div class="container">
+    <div class="row">
+      <tvPage></tvPage>
+    </div>
   </div>
   <h2>Preferiti</h2>
-  <div class="row">
-    <favoritePage></favoritePage>
+  <div class="container">
+    <div class="row">
+      <favoritePage></favoritePage>
+    </div>
   </div>
 </template>
 <style scoped lang="scss">
 @use "../scss/partials/size.scss" as *;
 
-.row {
-  width: 100%;
+h2 {
+  margin-top: 50px;
+}
+.container {
+  width: 1100px;
+  overflow: scroll;
   display: flex;
+
+  .row {
+    width: 500%;
+    .card {
+      width: 5000px;
+    }
+  }
 }
 </style>

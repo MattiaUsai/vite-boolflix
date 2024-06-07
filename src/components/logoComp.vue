@@ -7,6 +7,15 @@ export default {
 };
 </script>
 <template>
-  <p>Boolflix</p>
+  <div class="logo">
+    <img src="/logoboolflix.jpg" alt="Boolflix" />
+  </div>
 </template>
-<style></style>
+<style scoped lang="scss">
+@use "../scss/partials/variables.scss" as *;
+
+.logo {
+  width: 200px;
+  color: $secondaryTextColor;
+}
+</style>

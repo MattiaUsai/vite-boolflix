@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/lora": "^5.0.18",
+    "@fontsource-variable/public-sans": "^5.0.19",
     "axios": "^1.7.2",
     "sass": "^1.77.4",
     "vue": "^3.4.21"

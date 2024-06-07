@@ -6,7 +6,7 @@ export const store = reactive({
   listTvShow: [],
   listPreferTv: [],
   listPreferFilm: [],
-  isActiveHome: false,
+  isActiveHome: true,
   isActiveFilm: false,
   isActiveSerieTv: false,
   isActivePreferiti: false,

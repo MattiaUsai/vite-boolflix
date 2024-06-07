@@ -58,7 +58,7 @@ export default {
 
   overflow: scroll;
   background-position: center;
-  background-size: contain;
+  background-size: cover;
   position: relative;
   .hearts {
     height: 50px;
