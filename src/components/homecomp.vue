@@ -2,6 +2,7 @@
 import { store } from "../store";
 import filmPage from "./filmPageComp.vue";
 import tvPage from "./tvPagecomp.vue";
+import favoritePage from "./favoritePage.vue";
 
 export default {
   data() {
@@ -15,30 +16,29 @@ export default {
   components: {
     filmPage,
     tvPage,
+    favoritePage,
   },
 };
 </script>
 <template>
-  <div class="homePageContainer">
-    <div class="container">
-      <h2>Film</h2>
-      <div class="row">
-        <filmPage></filmPage>
-      </div>
-      <h2>Serie tv</h2>
-      <div class="row"></div>
-      <h2>Preferiti</h2>
-      <div class="row"></div>
-    </div>
+  <h2>Film</h2>
+  <div class="row">
+    <filmPage></filmPage>
+  </div>
+  <h2>Serie tv</h2>
+  <div class="row">
+    <tvPage></tvPage>
+  </div>
+  <h2>Preferiti</h2>
+  <div class="row">
+    <favoritePage></favoritePage>
   </div>
 </template>
 <style scoped lang="scss">
-.homePageContainer {
-  .container {
-    max-width: 1100px;
-    .row {
-      display: flex;
-    }
-  }
+@use "../scss/partials/size.scss" as *;
+
+.row {
+  width: 100%;
+  display: flex;
 }
 </style>
